@@ -1,0 +1,17 @@
+{
+  "width": 5,
+  "height": 3,
+  "max_steps": 40,
+  "node_budget": 20000,
+  "obstacles": [{"x": 2, "y": 1}],
+  "vehicles": [
+    {"id": "a", "start": {"x": 0, "y": 0}, "goal": {"x": 4, "y": 0}},
+    {"id": "b", "start": {"x": 0, "y": 2}, "goal": {"x": 4, "y": 2}}
+  ],
+  "tasks": [
+    {"id": "t1", "work": {"x": 2, "y": 0}, "allowed_vehicles": ["a", "b"],
+     "earliest_start": 2, "latest_finish": 12, "dwell_steps": 2},
+    {"id": "t2", "work": {"x": 2, "y": 2}, "allowed_vehicles": ["a", "b"],
+     "earliest_start": 0, "latest_finish": 20, "dwell_steps": 1}
+  ]
+}

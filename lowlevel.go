@@ -138,6 +138,14 @@ func lowLevel(grid *Grid, start, goal Cell, cs *constraintSet, maxSteps int) (pa
 	if cs.vertexBlocked(start, 0) {
 		return nil, 0, false
 	}
+	// A vehicle whose start is its goal is parked there from time 0 and
+	// must never drive away and come back. The cell has to be safe forever.
+	if start == goal {
+		if cs.futureSafe(goal, 0) {
+			return []Cell{start}, 0, true
+		}
+		return nil, 0, false
+	}
 
 	type state struct {
 		cell Cell
